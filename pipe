@@ -16,7 +16,8 @@ pipeline{
                  environment name: 'environment', value:"dev"
                }
               steps{
-                    
+                    sh  ' ./a.sh '
+                    sh  ' img=$(./a.sh)
                     sh  ' echo "myservices=$myservices  img=$img  r1=$r1  ms=$ms" >> sh.sh'
                     sh  ' cat compose.sh > sh.sh '
                     sh  ' chmod +x sh.sh '

@@ -14,11 +14,8 @@ pipeline{
              agent{ label'dockergroup' }
               when{
                  environment name: 'environment', value:"dev"
-              }
-
-
+               }
               steps{
-
                     sh  ' y=$((./a.sh)'
                     sh  ' echo $y '
                     sh  ' sed s/$y/img/ pipe '
@@ -26,7 +23,7 @@ pipeline{
                     sh  ' cat compose.sh >> sh.sh '
                     sh  ' chmod +x sh.sh '
                     sh  ' ./sh.sh '
-                    sh  ' docker stack deploy -c docker-compose_ft.yml mydevstack '
+                    sh  ' docker stack deploy -c docker-compose_ft.yml myqastack '
               }
          }
          stage('qa'){
